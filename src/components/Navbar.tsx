@@ -1,5 +1,4 @@
 "use client";
-
 import Link from 'next/link';
 import { Menu, X, Crosshair } from 'lucide-react';
 import React, { useState } from 'react';
