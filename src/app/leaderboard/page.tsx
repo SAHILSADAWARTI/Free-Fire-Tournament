@@ -23,6 +23,35 @@ export default function Leaderboard() {
       </h1>
 
       <div className="overflow-x-auto">
+        <div className="flex justify-center items-end gap-6 mb-10">
+
+  {/* 2nd Place */}
+  <div className="bg-gray-300 text-black p-6 rounded-lg text-center w-32">
+    <h2 className="text-xl font-bold">🥈</h2>
+    <p>{leaderboard[1]?.name}</p>
+  </div>
+
+  {/* 1st Place */}
+  <div className="bg-yellow-500 text-black p-8 rounded-lg text-center w-36 scale-110">
+    <h2 className="text-2xl font-bold">🥇</h2>
+    <p>{leaderboard[0]?.name}</p>
+  </div>
+
+  {/* 3rd Place */}
+  <div className="bg-orange-400 text-black p-6 rounded-lg text-center w-32">
+    <h2 className="text-xl font-bold">🥉</h2>
+    <p>{leaderboard[2]?.name}</p>
+  </div>
+
+</div>
+        <div className="text-center mb-10">
+  <h2 className="text-2xl font-bold text-red-500 mb-2">
+    🔥 MVP PLAYER
+  </h2>
+  <p className="text-lg">
+    PlayerX (Team Alpha) - 15 Kills
+  </p>
+</div>
         <table className="w-full text-center border border-gray-700">
           
           <thead className="bg-red-600">
