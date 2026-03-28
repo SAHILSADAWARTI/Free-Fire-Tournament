@@ -1,0 +1,65 @@
+{
+  "tournament": {
+    "name": "FREE FIRE TOURNAMENT",
+    "tagline": "Survive. Dominate. Conquer.",
+    "status": "Match Ongoing",
+    "mvp": {
+      "name": "Ninja_X",
+      "team": "Team Alpha",
+      "kills": 42,
+      "headshots": 18,
+      "survivalTime": "4h 22m"
+    }
+  },
+  "teams": [
+    { "id": "t1", "name": "Team Alpha", "players": ["Alpha_1", "Alpha_2", "Alpha_3", "Alpha_4"] },
+    { "id": "t2", "name": "Cyber Gods", "players": ["Cyber_1", "Cyber_2", "Cyber_3", "Cyber_4"] },
+    { "id": "t3", "name": "Neon Ninjas", "players": ["Neon_1", "Neon_2", "Neon_3", "Neon_4"] },
+    { "id": "t4", "name": "Shadow Strike", "players": ["Shadow_1", "Shadow_2", "Shadow_3", "Shadow_4"] },
+    { "id": "t5", "name": "Venom Squad", "players": ["Venom_1", "Venom_2", "Venom_3", "Venom_4"] },
+    { "id": "t6", "name": "Rogue Elite", "players": ["Rogue_1", "Rogue_2", "Rogue_3", "Rogue_4"] },
+    { "id": "t7", "name": "Phantom Ops", "players": ["Phantom_1", "Phantom_2", "Phantom_3", "Phantom_4"] },
+    { "id": "t8", "name": "Blaze Force", "players": ["Blaze_1", "Blaze_2", "Blaze_3", "Blaze_4"] },
+    { "id": "t9", "name": "Titanium", "players": ["Titan_1", "Titan_2", "Titan_3", "Titan_4"] },
+    { "id": "t10", "name": "Apex Predators", "players": ["Apex_1", "Apex_2", "Apex_3", "Apex_4"] },
+    { "id": "t11", "name": "Viper Clan", "players": ["Viper_1", "Viper_2", "Viper_3", "Viper_4"] },
+    { "id": "t12", "name": "Skull Crushers", "players": ["Skull_1", "Skull_2", "Skull_3", "Skull_4"] }
+  ],
+  "matches": [
+    {
+      "round": 1,
+      "results": [
+        { "teamId": "t1", "placement": 1, "kills": 12 },
+        { "teamId": "t2", "placement": 2, "kills": 8 },
+        { "teamId": "t3", "placement": 3, "kills": 5 },
+        { "teamId": "t4", "placement": 4, "kills": 6 },
+        { "teamId": "t5", "placement": 5, "kills": 3 },
+        { "teamId": "t6", "placement": 6, "kills": 4 },
+        { "teamId": "t7", "placement": 7, "kills": 6 },
+        { "teamId": "t8", "placement": 8, "kills": 2 },
+        { "teamId": "t9", "placement": 9, "kills": 1 },
+        { "teamId": "t10", "placement": 10, "kills": 5 },
+        { "teamId": "t11", "placement": 11, "kills": 0 },
+        { "teamId": "t12", "placement": 12, "kills": 3 }
+      ]
+    },
+    {
+      "round": 2,
+      "results": [
+        { "teamId": "t3", "placement": 1, "kills": 10 },
+        { "teamId": "t1", "placement": 2, "kills": 7 },
+        { "teamId": "t4", "placement": 3, "kills": 8 },
+        { "teamId": "t2", "placement": 4, "kills": 4 }
+      ]
+    },
+    {
+      "round": 3,
+      "results": [
+        { "teamId": "t2", "placement": 1, "kills": 15 },
+        { "teamId": "t1", "placement": 2, "kills": 6 },
+        { "teamId": "t5", "placement": 3, "kills": 7 },
+        { "teamId": "t3", "placement": 4, "kills": 2 }
+      ]
+    }
+  ]
+}
