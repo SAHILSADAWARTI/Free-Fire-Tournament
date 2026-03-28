@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="p-4 bg-black text-white">
+    <nav className="relative p-4 bg-black text-white flex justify-between items-center">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">FREE FIRE TOURNAMENT</h1>
         <button onClick={() => setIsOpen(!isOpen)}>
@@ -17,9 +17,9 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-  <div className="absolute top-16 right-4 bg-black border border-red-500 rounded-lg p-4 w-40 shadow-lg shadow-red-500/30">
+  <div className="absolute right-4 top-14 bg-black border border-red-500 rounded-lg p-4 w-44 shadow-lg shadow-red-500/30 z-50">
 
-    <div className="flex flex-col gap-3 text-center">
+    <div className="flex flex-col gap-3">
       <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
       <Link href="/teams" onClick={() => setIsOpen(false)}>Teams</Link>
       <Link href="/leaderboard" onClick={() => setIsOpen(false)}>Leaderboard</Link>
