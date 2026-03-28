@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
@@ -16,17 +17,17 @@ export default function Home() {
 
       <div className="flex gap-4 mt-6 flex-wrap justify-center">
 
-  <a href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
-    Leaderboard
-  </a>
+ <Link href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
+  Leaderboard
+</Link>
 
-  <a href="/teams" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
-    Teams
-  </a>
+<Link href="/teams" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+  Teams
+</Link>
 
-  <a href="/results" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
-    Results
-  </a>
+<Link href="/results" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+  Results
+</Link>
 
 </div>
 
