@@ -9,6 +9,18 @@ export default function Home() {
       <p className="text-xl mb-6">
         Survive. Dominate. Conquer.
       </p>
+      <div className="mt-4 px-4 py-2 bg-red-600 text-white rounded-full animate-pulse inline-block">
+  🔴 Match Ongoing
+</div>
+      <div className="flex gap-4 mt-6">
+  <a href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
+    View Leaderboard
+  </a>
+
+  <a href="/teams" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+    View Teams
+  </a>
+</div>
 
       <div className="flex gap-4">
         <a href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700">
