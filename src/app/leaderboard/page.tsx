@@ -1,79 +1,68 @@
-import { getLeaderboard } from '@/lib/dataUtils';
-import { Trophy, Medal } from 'lucide-react';
+const teams = [
+  { name: "Team Alpha", m1: 15, m2: 10, m3: 12 },
+  { name: "Team Blaze", m1: 12, m2: 14, m3: 9 },
+  { name: "Team Shadow", m1: 10, m2: 8, m3: 11 },
+  { name: "Team Phantom", m1: 8, m2: 12, m3: 10 },
+  { name: "Team Vortex", m1: 6, m2: 9, m3: 7 },
+  { name: "Team Inferno", m1: 5, m2: 6, m3: 8 },
+];
 
-export default function LeaderboardPage() {
-  const leaderboard = getLeaderboard();
+const leaderboard = teams
+  .map((team) => ({
+    ...team,
+    total: team.m1 + team.m2 + team.m3,
+  }))
+  .sort((a, b) => b.total - a.total);
 
-  // Helper to determine row styling for top 3
-  const getRowClass = (index: number) => {
-    switch (index) {
-      case 0: return "bg-gaming-gold/10 border-l-[6px] border-gaming-gold hover:bg-gaming-gold/20";
-      case 1: return "bg-gaming-silver/10 border-l-[6px] border-gaming-silver hover:bg-gaming-silver/20";
-      case 2: return "bg-gaming-bronze/10 border-l-[6px] border-gaming-bronze hover:bg-gaming-bronze/20";
-      default: return "bg-gaming-surface border-l-[6px] border-transparent hover:bg-gaming-card hover:border-gaming-neonOrange/50";
-    }
-  };
-
-  const getRankIcon = (index: number) => {
-    switch (index) {
-      case 0: return <Trophy className="w-6 h-6 text-gaming-gold" />;
-      case 1: return <Medal className="w-6 h-6 text-gaming-silver" />;
-      case 2: return <Medal className="w-6 h-6 text-gaming-bronze" />;
-      default: return <span className="text-gray-500 font-bold w-6 text-center">{index + 1}</span>;
-    }
-  };
-
+export default function Leaderboard() {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom py-10 w-full duration-700 max-w-5xl mx-auto flex flex-col items-center">
-      <div className="text-center mb-16 relative">
-        <h1 className="text-5xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-glow-gradient drop-shadow-[0_0_15px_rgba(255,85,0,0.5)]">
-          Global Leaderboard
-        </h1>
-        <p className="text-gray-400 uppercase tracking-widest mt-4">Top teams dominate the arena</p>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-gaming-neonRed/20 blur-[100px] -z-10 rounded-full" />
-      </div>
+    <main className="min-h-screen bg-black text-white px-6 py-10">
 
-      <div className="w-full overflow-x-auto rounded-xl border border-white/5 shadow-neon">
-        <table className="w-full text-left border-collapse min-w-[800px]">
-          <thead>
-            <tr className="bg-gaming-card text-gray-400 uppercase tracking-wider text-sm border-b border-white/10">
-              <th className="p-4 pl-6 w-20">Rank</th>
-              <th className="p-4 font-bold">Team Name</th>
-              <th className="p-4 text-center">Match 1</th>
-              <th className="p-4 text-center">Match 2</th>
-              <th className="p-4 text-center">Match 3</th>
-              <th className="p-4 text-center text-gaming-neonOrange">Total Kills</th>
-              <th className="p-4 text-center text-gaming-neonRed font-black">Total Pts</th>
+      <h1 className="text-4xl font-bold text-center text-red-500 mb-10">
+        LEADERBOARD
+      </h1>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-center border border-gray-700">
+          
+          <thead className="bg-red-600">
+            <tr>
+              <th className="p-3">Rank</th>
+              <th className="p-3">Team</th>
+              <th className="p-3">Match 1</th>
+              <th className="p-3">Match 2</th>
+              <th className="p-3">Match 3</th>
+              <th className="p-3">Total</th>
             </tr>
           </thead>
-          <tbody>
-            {leaderboard.map((entry, index) => {
-              const m1 = entry.matches.find(m => m.round === 1)?.points || '-';
-              const m2 = entry.matches.find(m => m.round === 2)?.points || '-';
-              const m3 = entry.matches.find(m => m.round === 3)?.points || '-';
 
-              return (
-                <tr 
-                  key={entry.team.id} 
-                  className={`border-b border-white/5 transition-all duration-300 ${getRowClass(index)}`}
-                >
-                  <td className="p-4 pl-6 flex items-center justify-center">
-                    {getRankIcon(index)}
-                  </td>
-                  <td className="p-4 font-bold text-lg uppercase tracking-wider text-white">
-                    {entry.team.name}
-                  </td>
-                  <td className="p-4 text-center text-gray-300 font-mono">{m1}</td>
-                  <td className="p-4 text-center text-gray-300 font-mono">{m2}</td>
-                  <td className="p-4 text-center text-gray-300 font-mono">{m3}</td>
-                  <td className="p-4 text-center text-gaming-neonOrange font-mono font-bold">{entry.totalKills}</td>
-                  <td className="p-4 text-center text-gaming-neonRed text-xl font-black">{entry.totalPoints}</td>
-                </tr>
-              );
-            })}
+          <tbody>
+            {leaderboard.map((team, index) => (
+              <tr
+                key={index}
+                className={`border-t border-gray-700 ${
+                  index === 0
+                    ? "bg-yellow-500 text-black font-bold"
+                    : index === 1
+                    ? "bg-gray-300 text-black"
+                    : index === 2
+                    ? "bg-orange-400 text-black"
+                    : ""
+                }`}
+              >
+                <td className="p-3">{index + 1}</td>
+                <td className="p-3">{team.name}</td>
+                <td className="p-3">{team.m1}</td>
+                <td className="p-3">{team.m2}</td>
+                <td className="p-3">{team.m3}</td>
+                <td className="p-3">{team.total}</td>
+              </tr>
+            ))}
           </tbody>
+
         </table>
       </div>
-    </div>
+
+    </main>
   );
 }
