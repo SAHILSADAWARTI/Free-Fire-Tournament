@@ -37,7 +37,7 @@ export default function TeamsPage() {
         {teams.map((team, index) => (
           <div
             key={index}
-            className="bg-gray-900 p-6 rounded-xl border border-red-500 hover:scale-105 transition"
+            className="bg-gray-900 p-6 rounded-xl border border-red-500 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
           >
             <h2 className="text-2xl font-bold mb-4 text-red-400">
               {team.name}
