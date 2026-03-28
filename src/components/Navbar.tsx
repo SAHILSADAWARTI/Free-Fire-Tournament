@@ -17,13 +17,17 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="mt-4 flex flex-col gap-2">
-          <Link href="/">Home</Link>
-          <Link href="/teams">Teams</Link>
-          <Link href="/leaderboard">Leaderboard</Link>
-          <Link href="/results">Results</Link>
-        </div>
-      )}
+  <div className="absolute top-16 right-4 bg-black border border-red-500 rounded-lg p-4 w-40 shadow-lg shadow-red-500/30">
+
+    <div className="flex flex-col gap-3 text-center">
+      <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+      <Link href="/teams" onClick={() => setIsOpen(false)}>Teams</Link>
+      <Link href="/leaderboard" onClick={() => setIsOpen(false)}>Leaderboard</Link>
+      <Link href="/results" onClick={() => setIsOpen(false)}>Results</Link>
+    </div>
+
+  </div>
+)}
     </nav>
   );
 }
