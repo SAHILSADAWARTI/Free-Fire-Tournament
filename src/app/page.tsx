@@ -24,7 +24,7 @@ export default function Home() {
 
         <div className="flex gap-4 mt-6 flex-wrap justify-center">
 
-          <Link href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
+          <Link href="/leaderboard" className="bg-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
             Leaderboard
           </Link>
 
