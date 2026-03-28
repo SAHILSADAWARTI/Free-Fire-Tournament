@@ -46,16 +46,32 @@ export default function TeamsPage() {
             </h2>
 
             <ul className="space-y-2">
-              {team.players.map((player, i) => (
-                <li key={i} className="text-gray-300">
-                  🎮 {player}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+              {teams.map((team, index) => (
+  <div
+    key={index}
+    className="relative bg-[url('/team-bg.jpg')] bg-cover bg-center p-6 rounded-xl border border-red-500 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer overflow-hidden"
+  >
 
+    <div className="absolute inset-0 bg-black/70"></div>
+
+    <div className="relative z-10">
+
+      <h2 className="text-2xl font-bold mb-4 text-red-400">
+        {team.name}
+      </h2>
+
+      <ul className="space-y-2">
+        {team.players.map((player, i) => (
+          <li key={i} className="text-gray-300">
+            🎮 {player}
+          </li>
+        ))}
+      </ul>
+
+    </div>
+
+  </div>
+))}
     </main>
   );
 }
