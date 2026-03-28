@@ -9,6 +9,18 @@ export default function Navbar() {
 
   return (
     <nav className="relative p-4 bg-black text-white flex justify-between items-center">
+
+  {/* LEFT SIDE (TITLE) */}
+  <h1 className="text-xl font-bold">
+    FREE FIRE TOURNAMENT
+  </h1>
+
+  {/* RIGHT SIDE (MENU BUTTON) */}
+  <button onClick={() => setIsOpen(!isOpen)}>
+    {isOpen ? <X /> : <Menu />}
+  </button>
+
+</nav>
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">FREE FIRE TOURNAMENT</h1>
         <button onClick={() => setIsOpen(!isOpen)}>
