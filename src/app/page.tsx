@@ -2,11 +2,18 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
-      <div className="absolute inset-0 bg-black/70"></div>
+
+  <div className="absolute inset-0 bg-black/70"></div>
+
+  <div className="relative z-10">
       
-      <h1 className="text-5xl font-bold text-red-500 mb-4 animate-pulse drop-shadow-[0_0_20px_rgba(255,0,0,0.9)]">
+      <h2 className="text-lg text-white mb-2 tracking-widest">
+  PRAGYOTSAV PRESENTS
+</h2>
+
+<h1 className="drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
   FREE FIRE TOURNAMENT
-     </h1>
+</h1>
 
       <p className="text-xl mb-6">
         Survive. Dominate. Conquer.
