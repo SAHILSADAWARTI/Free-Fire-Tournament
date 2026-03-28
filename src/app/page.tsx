@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center text-center px-4">
       
-      <h1 className="text-5xl font-bold text-red-500 mb-4">
+      <h1 className="text-4xl font-bold text-red-500 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]"
         FREE FIRE TOURNAMENT
       </h1>
 
