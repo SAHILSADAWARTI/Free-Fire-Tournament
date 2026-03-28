@@ -1,27 +1,34 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center text-center px-4">
+    <main className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
+      <div className="absolute inset-0 bg-black/70"></div>
       
-      <h1 className="text-4xl font-bold text-red-500 drop-shadow-[0_0_10px_rgba(255,0,0,0.7)]"
-        FREE FIRE TOURNAMENT
-      </h1>
+      <h1 className="text-5xl font-bold text-red-500 mb-4 animate-pulse drop-shadow-[0_0_20px_rgba(255,0,0,0.9)]">
+  FREE FIRE TOURNAMENT
+     </h1>
 
       <p className="text-xl mb-6">
         Survive. Dominate. Conquer.
       </p>
-      <div className="mt-4 px-4 py-2 bg-red-600 text-white rounded-full animate-pulse inline-block">
-  🔴 Match Ongoing
-</div>
-
-      <div className="flex gap-4">
-        <a href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700">
-          View Leaderboard
-        </a>
-
-        <a href="/teams" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500">
-          View Teams
-        </a>
+      <div className="mt-4 px-6 py-2 bg-red-600 text-white rounded-full animate-pulse shadow-lg shadow-red-500/50">
+  🔴 LIVE NOW: Round 2 Ongoing
       </div>
+
+      <div className="flex gap-4 mt-6 flex-wrap justify-center">
+
+  <a href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
+    Leaderboard
+  </a>
+
+  <a href="/teams" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+    Teams
+  </a>
+
+  <a href="/results" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+    Results
+  </a>
+
+</div>
 
     </main>
   );
