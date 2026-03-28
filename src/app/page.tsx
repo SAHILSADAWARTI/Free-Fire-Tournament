@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
 
-  <div className="absolute inset-0 bg-black/70"></div>
+  <div className="absolute inset-0 bg-black/70 pointer-events-none"></div>
 
   <div className="relative z-10">
       
