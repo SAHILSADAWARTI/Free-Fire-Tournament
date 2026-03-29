@@ -16,7 +16,7 @@ export default function Navbar() {
       </h1>
 
       {/* RIGHT SIDE MENU BUTTON */}
-      <button onClick={() => setIsOpen(!isOpen)}>
+      <button onClick={() => setIsOpen(!isOpen)} className="p-2">
         {isOpen ? <X /> : <Menu />}
       </button>
 
