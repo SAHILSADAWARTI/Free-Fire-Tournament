@@ -19,7 +19,9 @@ export default function Home() {
         </h1>
 
         <div className="mt-4 px-6 py-2 bg-red-600 text-white rounded-full shadow-lg shadow-red-500/50">
-          🔴 LIVE NOW: Round 2 Ongoing
+          <div className="mt-4 px-6 py-2 rounded-full border border-red-500 text-red-400 font-semibold animate-pulse shadow-[0_0_15px_red]">
+            🔴 LIVE MATCH: Round 2 Ongoing
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 mt-6 items-center">
