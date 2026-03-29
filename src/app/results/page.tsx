@@ -56,7 +56,15 @@ export default function ResultsPage() {
                   .sort((a, b) => a.position - b.position)
                   .map((team, i) => (
                     <tr key={i} className="border-t border-gray-700">
-                      <td className="p-3">{team.position}</td>
+                      <td className="p-3 text-lg font-bold">
+                        {team.position === 1
+                          ? "🥇"
+                          : team.position === 2
+                          ? "🥈"
+                          : team.position === 3
+                          ? "🥉"
+                          : team.position}
+                      </td>
                       <td className="p-3">{team.team}</td>
                       <td className="p-3">{team.points}</td>
                     </tr>
