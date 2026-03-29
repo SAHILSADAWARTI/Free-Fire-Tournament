@@ -46,9 +46,9 @@ export default function TeamsPage() {
             className="relative bg-[url('/team-bg.jpg')] bg-cover bg-center p-6 rounded-xl border border-red-500 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer overflow-hidden"
           >
 
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
 
-            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,_red_1px,_transparent_1px)] bg-[size:25px_25px]"></div>
+            <div className="absolute inset-0 opacity-40 bg-[linear-gradient(45deg,_red_1px,_transparent_1px)] bg-[size:25px_25px]"></div>
 
             <div className="relative z-10">
               <img
