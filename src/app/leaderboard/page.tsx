@@ -80,7 +80,15 @@ export default function Leaderboard() {
                     : ""
                 }`}
               >
-                <td className="p-3">{index + 1}</td>
+                <td className="p-3 text-xl font-bold">
+                  <span className={`
+                    ${index === 0 ? "text-yellow-400 drop-shadow-[0_0_10px_gold]" : ""}
+                    ${index === 1 ? "text-gray-300" : ""}
+                    ${index === 2 ? "text-orange-400" : ""}
+                  `}>
+                    {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}
+                  </span>
+                </td>
                 <td className="p-3">{team.name}</td>
                 <td className="p-3">{team.m1}</td>
                 <td className="p-3">{team.m2}</td>
