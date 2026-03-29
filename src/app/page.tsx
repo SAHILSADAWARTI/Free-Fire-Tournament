@@ -22,9 +22,9 @@ export default function Home() {
           🔴 LIVE NOW: Round 2 Ongoing
         </div>
 
-        className="flex flex-col md:flex-row gap-4 mt-6 items-center"
+        <div className="flex flex-col md:flex-row gap-4 mt-6 items-center">
 
-          <Link href="/leaderboard" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
+          <Link href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
             Leaderboard
           </Link>
 
