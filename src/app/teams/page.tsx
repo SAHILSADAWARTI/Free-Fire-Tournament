@@ -48,7 +48,7 @@ export default function TeamsPage() {
 
             <div className="absolute inset-0 bg-black/70"></div>
 
-<div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,_rgba(255,0,0,0.3)_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,_rgba(255,0,0,0.3)_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
 
             <div className="relative z-10">
               <img
