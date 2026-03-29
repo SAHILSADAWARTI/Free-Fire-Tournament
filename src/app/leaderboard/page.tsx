@@ -1,15 +1,30 @@
 "use client";
-import { useState } from "react";
-  const teams = [
-  { name: "Team Alpha", m1: 15, m2: 10, m3: 12, kills: 20 },
-  { name: "Team Blaze", m1: 12, m2: 14, m3: 9, kills: 18 },
-  { name: "Team Shadow", m1: 10, m2: 8, m3: 11, kills: 15 },
-  { name: "Team Phantom", m1: 8, m2: 12, m3: 10, kills: 12 },
-  { name: "Team Vortex", m1: 6, m2: 9, m3: 7, kills: 10 },
-  { name: "Team Inferno", m1: 5, m2: 6, m3: 8, kills: 9 },
-];
+import { useEffect, useState } from "react";
+  useEffect(() => {
+  fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTunBhaWEqpcrUNXFchr-qGMVy4X3pCmhmdQsaziEJRS34Q3x_S99OD2XkDaED0YSNHZqR3ly1XdaXq/pub?gid=0&single=true&output=csv")
+    .then((res) => res.text())
+    .then((data) => {
+      const rows = data.split("\n").slice(1);
+
+      const parsed = rows.map((row) => {
+        const [team, m1, m2, m3, kills] = row.split(",");
+
+        return {
+          name: team,
+          m1: Number(m1),
+          m2: Number(m2),
+          m3: Number(m3),
+          kills: Number(kills),
+          logo: "/default-logo.png"
+        };
+      });
+
+      setTeams(parsed);
+    });
+}, []);
 
 export default function Leaderboard() {
+  const [teams, setTeams] = useState<any[]>([]);
   const [search, setSearch] = useState("");
   const leaderboard = teams
   .map((team) => ({
@@ -27,6 +42,14 @@ export default function Leaderboard() {
       <h1 className="text-4xl md:text-4xl font-bold text-center text-red-500 mb-10">
         LEADERBOARD
       </h1>
+      <div className="flex justify-center mb-4">
+        <button
+          onClick={() => location.reload()}
+          className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700"
+        >
+          🔄 Refresh Scores
+        </button>
+      </div>
       <div className="mb-6 flex justify-center">
         <input
           type="text"
