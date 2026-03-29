@@ -10,6 +10,7 @@ const results = [
   },
   {
     round: "Round 2",
+    mvp: "Player1",
     data: [
       { team: "Team Alpha", position: 2, points: 9 },
       { team: "Team Blaze", position: 1, points: 12 },
@@ -18,6 +19,7 @@ const results = [
   },
   {
     round: "Round 3",
+    mvp: "Player1",
     data: [
       { team: "Team Alpha", position: 3, points: 8 },
       { team: "Team Blaze", position: 2, points: 9 },
@@ -58,7 +60,7 @@ export default function ResultsPage() {
               <tbody>
                 {[...round.data]
                   .sort((a, b) => a.position - b.position)
-                  .map((team, i) => (
+                  .map((team: any, i) => (
                     <tr
                       key={i}
                       className={`border-t border-gray-700 ${
