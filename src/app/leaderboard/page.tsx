@@ -5,26 +5,36 @@ export default function Leaderboard() {
   const [teams, setTeams] = useState<any[]>([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-  fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTunBhaWEqpcrUNXFchr-qGMVy4X3pCmhmdQsaziEJRS34Q3x_S99OD2XkDaED0YSNHZqR3ly1XdaXq/pub?gid=0&single=true&output=csv")
-    .then((res) => res.text())
-    .then((data) => {
-      const rows = data.split("\n").slice(1).filter(row => row.trim() !== "");;
 
-      const parsed = rows.map((row) => {
-        const [team, m1, m2, m3, kills] = row.split(",");
+  const fetchData = () => {
+    fetch("YOUR_CSV_LINK")
+      .then((res) => res.text())
+      .then((data) => {
+        const rows = data.split("\n").slice(1).filter(row => row.trim() !== "");
 
-        return {
-          name: team || "",
-          m1: Number(m1) || 0,
-          m2: Number(m2) || 0,
-          m3: Number(m3) || 0,
-          kills: Number(kills) || 0,
-          logo: "/default-logo.png",
-        };
+        const parsed = rows.map((row) => {
+          const [team, m1, m2, m3, kills] = row.split(",");
+
+          return {
+            name: team || "",
+            m1: Number(m1) || 0,
+            m2: Number(m2) || 0,
+            m3: Number(m3) || 0,
+            kills: Number(kills) || 0,
+            logo: "/default-logo.png",
+          };
+        });
+
+        setTeams(parsed);
       });
+  };
 
-      setTeams(parsed);
-    });
+  fetchData(); // first load
+
+  const interval = setInterval(fetchData, 10000); // every 10 sec
+
+  return () => clearInterval(interval);
+
 }, []);
   
   const leaderboard = teams
