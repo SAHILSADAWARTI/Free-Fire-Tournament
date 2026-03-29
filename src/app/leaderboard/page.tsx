@@ -9,7 +9,9 @@ import { useState } from "react";
   { name: "Team Inferno", m1: 5, m2: 6, m3: 8, kills: 9 },
 ];
 
-const leaderboard = teams
+export default function Leaderboard() {
+  const [search, setSearch] = useState("");
+  const leaderboard = teams
   .map((team) => ({
     ...team,
     total: team.m1 + team.m2 + team.m3 + team.kills,
@@ -18,9 +20,7 @@ const leaderboard = teams
     team.name.toLowerCase().includes(search.toLowerCase())
   )
   .sort((a, b) => b.total - a.total);
-
-export default function Leaderboard() {
-  const [search, setSearch] = useState("");
+  
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
