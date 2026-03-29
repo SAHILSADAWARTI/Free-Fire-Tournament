@@ -1,5 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
+  
+export default function Leaderboard() {
+  const [teams, setTeams] = useState<any[]>([]);
+  const [search, setSearch] = useState("");
   useEffect(() => {
   fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTunBhaWEqpcrUNXFchr-qGMVy4X3pCmhmdQsaziEJRS34Q3x_S99OD2XkDaED0YSNHZqR3ly1XdaXq/pub?gid=0&single=true&output=csv")
     .then((res) => res.text())
@@ -22,10 +26,7 @@ import { useEffect, useState } from "react";
       setTeams(parsed);
     });
 }, []);
-
-export default function Leaderboard() {
-  const [teams, setTeams] = useState<any[]>([]);
-  const [search, setSearch] = useState("");
+  
   const leaderboard = teams
   .map((team) => ({
     ...team,
