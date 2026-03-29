@@ -8,8 +8,8 @@ export default function AdminPage() {
     { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
 
-  const handleChange = (index: number, field: string, value: string) => {
-    const updated = [...teams];
+  const handleChange = (index: number, field: any, value: string) => {
+    const updated: any = [...teams];
     updated[index][field] = Number(value);
     setTeams(updated);
   };
