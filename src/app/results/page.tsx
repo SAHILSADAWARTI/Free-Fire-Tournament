@@ -59,7 +59,7 @@ export default function ResultsPage() {
                       key={i}
                       className={`border-t border-gray-700 ${
                         team.position === 1
-                          ? "bg-yellow-500 text-black font-bold"
+                          ? "bg-yellow-500 text-black font-bold shadow-[0_0_20px_gold]"
                           : team.position === 2
                           ? "bg-gray-300 text-black"
                           : team.position === 3
