@@ -52,7 +52,9 @@ export default function ResultsPage() {
               </thead>
 
               <tbody>
-                {round.data.map((team, i) => (
+                [...round.data]
+                  .sort((a, b) => a.position - b.position)
+                  .map((team, i) => (
                   <tr key={i} className="border-t border-gray-700">
                     <td className="p-3">{team.position}</td>
                     <td className="p-3">{team.team}</td>
