@@ -48,7 +48,7 @@ export default function TeamsPage() {
 
             <div className="absolute inset-0 bg-black/50"></div>
 
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-30"></div>
+            className="absolute inset-0 bg-[url('/pattern.png')] opacity-30 mix-blend-overlay"
 
             <div className="relative z-10">
               <img
