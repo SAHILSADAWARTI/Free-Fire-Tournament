@@ -1,4 +1,6 @@
-const teams = [
+"use client";
+import { useState } from "react";
+  const teams = [
   { name: "Team Alpha", m1: 15, m2: 10, m3: 12, kills: 20 },
   { name: "Team Blaze", m1: 12, m2: 14, m3: 9, kills: 18 },
   { name: "Team Shadow", m1: 10, m2: 8, m3: 11, kills: 15 },
@@ -12,15 +14,33 @@ const leaderboard = teams
     ...team,
     total: team.m1 + team.m2 + team.m3 + team.kills,
   }))
+  .filter((team) =>
+    team.name.toLowerCase().includes(search.toLowerCase())
+  )
   .sort((a, b) => b.total - a.total);
 
 export default function Leaderboard() {
+  const [search, setSearch] = useState("");
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
       <h1 className="text-4xl font-bold text-center text-red-500 mb-10">
         LEADERBOARD
       </h1>
+      <div className="mb-6 flex justify-center">
+        <input
+          type="text"
+          placeholder="Search team..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="px-4 py-2 rounded-lg bg-black border border-red-500 text-white outline-none w-64 focus:shadow-[0_0_10px_red]"
+        />
+      </div>
+      {leaderboard.length === 0 && (
+        <p className="text-center text-gray-400 mt-4">
+          No team found
+        </p>
+      )}
 
       <div className="overflow-x-auto">
         <div className="flex justify-center items-end gap-6 mb-10">
