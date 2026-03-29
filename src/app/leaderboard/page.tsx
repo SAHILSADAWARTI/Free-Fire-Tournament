@@ -8,18 +8,18 @@ export default function Leaderboard() {
   fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTunBhaWEqpcrUNXFchr-qGMVy4X3pCmhmdQsaziEJRS34Q3x_S99OD2XkDaED0YSNHZqR3ly1XdaXq/pub?gid=0&single=true&output=csv")
     .then((res) => res.text())
     .then((data) => {
-      const rows = data.split("\n").slice(1);
+      const rows = data.split("\n").slice(1).filter(row => row.trim() !== "");;
 
       const parsed = rows.map((row) => {
         const [team, m1, m2, m3, kills] = row.split(",");
 
         return {
-          name: team,
-          m1: Number(m1),
-          m2: Number(m2),
-          m3: Number(m3),
-          kills: Number(kills),
-          logo: "/default-logo.png"
+          name: team || "",
+          m1: Number(m1) || 0,
+          m2: Number(m2) || 0,
+          m3: Number(m3) || 0,
+          kills: Number(kills) || 0,
+          logo: "/default-logo.png",
         };
       });
 
