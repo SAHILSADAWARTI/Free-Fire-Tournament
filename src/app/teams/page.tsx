@@ -1,26 +1,32 @@
 const teams = [
   {
     name: "Team Alpha",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
   {
     name: "Team Blaze",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
   {
     name: "Team Shadow",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
   {
     name: "Team Phantom",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
   {
     name: "Team Vortex",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
   {
     name: "Team Inferno",
+    logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
 ];
@@ -43,6 +49,11 @@ export default function TeamsPage() {
             <div className="absolute inset-0 bg-black/70"></div>
 
             <div className="relative z-10">
+              <img
+                src={team.logo}
+                alt="team logo"
+                className="w-16 h-16 mx-auto mb-4 rounded-full border border-red-500"
+              />
 
               <h2 className="text-2xl font-bold mb-4 text-red-400">
                 {team.name}
