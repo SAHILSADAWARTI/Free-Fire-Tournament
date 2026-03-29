@@ -14,21 +14,6 @@ const teams = [
     logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
-  {
-    name: "Team Phantom",
-    logo: "/default-logo.png",
-    players: ["Player1", "Player2", "Player3", "Player4"],
-  },
-  {
-    name: "Team Vortex",
-    logo: "/default-logo.png",
-    players: ["Player1", "Player2", "Player3", "Player4"],
-  },
-  {
-    name: "Team Inferno",
-    logo: "/default-logo.png",
-    players: ["Player1", "Player2", "Player3", "Player4"],
-  },
 ];
 
 export default function TeamsPage() {
@@ -39,27 +24,28 @@ export default function TeamsPage() {
         TEAMS
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {teams.map((team, index) => (
           <div
             key={index}
-            className="relative bg-[url('/team-bg.jpg')] bg-cover bg-center p-6 rounded-xl border border-red-500 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer overflow-hidden"
+            className="relative bg-[url('/team-bg.jpg')] bg-cover bg-center p-6 rounded-xl border border-red-500 overflow-hidden"
           >
 
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-30"></div>
 
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-30 mix-blend-overlay"></div>
+            <div className="relative z-10 text-center">
 
-            <div className="relative z-10">
               <img
                 src={team.logo}
-                alt="team logo"
+                alt="logo"
                 className="w-16 h-16 mx-auto mb-4 rounded-full border border-red-500"
               />
 
-              <h2 className="text-2xl font-bold mb-4 text-red-400">
+              <h2 className="text-2xl font-bold text-red-400">
                 {team.name}
               </h2>
+
               <p className="text-xs text-gray-400 mb-2">Squad</p>
 
               <ul className="space-y-2">
