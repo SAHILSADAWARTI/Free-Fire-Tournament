@@ -1,6 +1,7 @@
 const results = [
   {
     round: "Round 1",
+    mvp: "Player1",
     data: [
       { team: "Team Alpha", position: 1, points: 12 },
       { team: "Team Blaze", position: 2, points: 9 },
@@ -40,6 +41,9 @@ export default function ResultsPage() {
             <h2 className="text-2xl font-bold mb-4 text-red-400">
               {round.round}
             </h2>
+            <p className="mb-4 text-yellow-400 font-semibold text-center text-lg drop-shadow-[0_0_10px_gold]">
+              🏆 MVP: {round.mvp}
+            </p>
 
             <table className="w-full text-center border border-gray-700">
 
@@ -76,7 +80,17 @@ export default function ResultsPage() {
                           ? "🥉"
                           : team.position}
                       </td>
-                      <td className="p-3">{team.team}</td>
+                      <td className="p-3 flex items-center justify-center gap-2">
+
+                        <img
+                          src={team.logo}
+                          alt="logo"
+                          className="w-8 h-8 rounded-full border border-red-500"
+                        />
+
+                        <span>{team.team}</span>
+
+                        </td>
                       <td className="p-3">{team.points}</td>
                     </tr>
                   ))}
