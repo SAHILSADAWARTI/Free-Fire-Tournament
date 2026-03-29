@@ -8,11 +8,16 @@ export default function AdminPage() {
     { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
 
-  const handleChange = (index: number, field: any, value: string) => {
-    const updated: any = [...teams];
-    updated[index][field] = Number(value);
-    setTeams(updated);
-  };
+  const handleChange = (index: number, field: string, value: string) => {
+  const updated = [...teams];
+
+  if (field === "m1") updated[index].m1 = Number(value);
+  if (field === "m2") updated[index].m2 = Number(value);
+  if (field === "m3") updated[index].m3 = Number(value);
+  if (field === "kills") updated[index].kills = Number(value);
+
+  setTeams(updated);
+};
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
