@@ -1,16 +1,16 @@
 const teams = [
-  { name: "Team Alpha", m1: 15, m2: 10, m3: 12 },
-  { name: "Team Blaze", m1: 12, m2: 14, m3: 9 },
-  { name: "Team Shadow", m1: 10, m2: 8, m3: 11 },
-  { name: "Team Phantom", m1: 8, m2: 12, m3: 10 },
-  { name: "Team Vortex", m1: 6, m2: 9, m3: 7 },
-  { name: "Team Inferno", m1: 5, m2: 6, m3: 8 },
+  { name: "Team Alpha", m1: 15, m2: 10, m3: 12, kills: 20 },
+  { name: "Team Blaze", m1: 12, m2: 14, m3: 9, kills: 18 },
+  { name: "Team Shadow", m1: 10, m2: 8, m3: 11, kills: 15 },
+  { name: "Team Phantom", m1: 8, m2: 12, m3: 10, kills: 12 },
+  { name: "Team Vortex", m1: 6, m2: 9, m3: 7, kills: 10 },
+  { name: "Team Inferno", m1: 5, m2: 6, m3: 8, kills: 9 },
 ];
 
 const leaderboard = teams
   .map((team) => ({
     ...team,
-    total: team.m1 + team.m2 + team.m3,
+    total: team.m1 + team.m2 + team.m3 + team.kills,
   }))
   .sort((a, b) => b.total - a.total);
 
@@ -61,6 +61,7 @@ export default function Leaderboard() {
               <th className="p-3">Match 1</th>
               <th className="p-3">Match 2</th>
               <th className="p-3">Match 3</th>
+              <th className="p-3">Kills</th>
               <th className="p-3">Total</th>
             </tr>
           </thead>
@@ -84,6 +85,7 @@ export default function Leaderboard() {
                 <td className="p-3">{team.m1}</td>
                 <td className="p-3">{team.m2}</td>
                 <td className="p-3">{team.m3}</td>
+                <td className="p-3">{team.kills}</td>
                 <td className="p-3">{team.total}</td>
               </tr>
             ))}
