@@ -24,7 +24,7 @@ export default function Leaderboard() {
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
-      <h1 className="text-4xl font-bold text-center text-red-500 mb-10">
+      <h1 className="text-4xl md:text-4xl font-bold text-center text-red-500 mb-10">
         LEADERBOARD
       </h1>
       <div className="mb-6 flex justify-center">
@@ -42,7 +42,7 @@ export default function Leaderboard() {
         </p>
       )}
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto w-full">
         <div className="flex justify-center items-end gap-6 mb-10">
 
   {/* 2nd Place */}
