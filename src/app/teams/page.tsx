@@ -1,6 +1,7 @@
 const teams = [
   {
     name: "Team Alpha",
+    <p className="text-xs text-gray-400 mb-2">Squad</p>
     logo: "/default-logo.png",
     players: ["Player1", "Player2", "Player3", "Player4"],
   },
