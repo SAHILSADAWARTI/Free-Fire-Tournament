@@ -47,6 +47,7 @@ export default function ResultsPage() {
               🏆 MVP: {round.mvp}
             </p>
 
+          <div className="overflow-x-auto w-full">
             <table className="w-full text-center border border-gray-700">
 
               <thead className="bg-red-600">
