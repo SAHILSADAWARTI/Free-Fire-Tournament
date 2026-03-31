@@ -28,7 +28,7 @@ export default function TeamsPage() {
         {teams.map((team, index) => (
           <div
             key={index}
-            className="relative bg-[url('/team-bg.jpg')] bg-cover bg-center p-4 md:p-6 rounded-xl border border-red-500 overflow-hidden"
+            className="relative bg-[url('/team-bg.jpg')] ... transition-all duration-300 hover:scale-105"
           >
 
             <div className="absolute inset-0 bg-black/40"></div>
