@@ -1,5 +1,12 @@
 "use client";
 import { useState } from "react";
+useEffect(() => {
+  const saved = localStorage.getItem("teams");
+  if (saved) {
+    setTeams(JSON.parse(saved));
+  }
+}, []);
+import { useEffect } from "react";
 
 export default function AdminPage() {
 
@@ -17,7 +24,9 @@ export default function AdminPage() {
   if (field === "kills") updated[index].kills = Number(value);
 
   setTeams(updated);
+  localStorage.setItem("teams", JSON.stringify(updated)); 
 };
+  
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
