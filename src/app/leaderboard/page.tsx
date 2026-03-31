@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
   
 export default function Leaderboard() {
+  
   const [teams, setTeams] = useState<any[]>([]);
+  
   useEffect(() => {
-  const saved = localStorage.getItem("teams");
-  if (saved) {
-    setTeams(JSON.parse(saved));
-  }
-}, []);
+    const saved = localStorage.getItem("teams");
+    if (saved) {
+      setTeams(JSON.parse(saved));
+    }
+  }, []);
   
   const leaderboard = teams
   .map((team) => ({
