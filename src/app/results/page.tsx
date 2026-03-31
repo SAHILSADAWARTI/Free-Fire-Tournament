@@ -62,7 +62,7 @@ export default function ResultsPage() {
                 {[...round.data]
                   .sort((a, b) => a.position - b.position)
                   .map((team: any, i) => (
-                    <tr
+                    <tr className="border-t border-gray-700 transition-all duration-300 hover:bg-gray-800">
                       key={i}
                       className={`border-t border-gray-700 ${
                         team.position === 1
