@@ -1,134 +1,59 @@
 "use client";
-import { useEffect, useState } from "react";
-  
-export default function Leaderboard() {
-  
-  const [teams, setTeams] = useState<any[]>([]);
-  
+import { useState, useEffect } from "react";
+
+export default function AdminPage() {
+
+  const [teams, setTeams] = useState([
+    { name: "Team Alpha", m1: 0, m2: 0, m3: 0, kills: 0 },
+    { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
+  ]);
+
+ 
   useEffect(() => {
     const saved = localStorage.getItem("teams");
     if (saved) {
       setTeams(JSON.parse(saved));
     }
   }, []);
-  
-  const leaderboard = teams
-  .map((team) => ({
-    ...team,
-    total: team.m1 + team.m2 + team.m3 + team.kills,
-  }))
-  .filter((team) =>
-    team.name.toLowerCase().includes(search.toLowerCase())
-  )
-  .sort((a, b) => b.total - a.total);
-  
+
+  const handleChange = (index: number, field: string, value: string) => {
+    const updated = [...teams];
+
+    if (field === "m1") updated[index].m1 = Number(value);
+    if (field === "m2") updated[index].m2 = Number(value);
+    if (field === "m3") updated[index].m3 = Number(value);
+    if (field === "kills") updated[index].kills = Number(value);
+
+    setTeams(updated);
+    localStorage.setItem("teams", JSON.stringify(updated));
+  };
+
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
-      <h1 className="text-4xl md:text-4xl font-bold text-center text-red-500 mb-10">
-        LEADERBOARD
+      <h1 className="text-3xl text-red-500 font-bold text-center mb-8">
+        ADMIN PANEL
       </h1>
-      <div className="flex justify-center mb-4">
-        <button
-          onClick={() => location.reload()}
-          className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700"
-        >
-          🔄 Refresh Scores
-        </button>
-      </div>
-      <div className="mb-6 flex justify-center">
-        <input
-          type="text"
-          placeholder="Search team..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="px-4 py-2 rounded-lg bg-black border border-red-500 text-white outline-none w-64 focus:shadow-[0_0_10px_red]"
-        />
-      </div>
-      {leaderboard.length === 0 && (
-        <p className="text-center text-gray-400 mt-4">
-          No team found
-        </p>
-      )}
 
-      <div className="overflow-x-auto w-full">
-        <div className="flex justify-center items-end gap-6 mb-10">
+      <div className="space-y-6">
 
-  {/* 2nd Place */}
-  <div className="bg-gray-300 text-black p-6 rounded-lg text-center w-32">
-    <h2 className="text-xl font-bold">🥈</h2>
-    <p>{leaderboard[1]?.name}</p>
-  </div>
+        {teams.map((team, index) => (
+          <div key={index} className="border border-red-500 p-4 rounded-lg">
 
-  {/* 1st Place */}
-  <div className="bg-yellow-500 text-black p-8 rounded-lg text-center w-36 scale-110">
-    <h2 className="text-2xl font-bold">🥇</h2>
-    <p>{leaderboard[0]?.name}</p>
-  </div>
+            <h2 className="text-xl mb-3">{team.name}</h2>
 
-  {/* 3rd Place */}
-  <div className="bg-orange-400 text-black p-6 rounded-lg text-center w-32">
-    <h2 className="text-xl font-bold">🥉</h2>
-    <p>{leaderboard[2]?.name}</p>
-  </div>
+            <div className="grid grid-cols-2 gap-4">
 
-</div>
-        <div className="text-center mb-10">
-  <h2 className="text-2xl font-bold text-red-500 mb-2">
-    🔥 MVP PLAYER
-  </h2>
-  <p className="text-lg">
-    PlayerX (Team Alpha) - 15 Kills
-  </p>
-</div>
-        <table className="w-full text-center border border-gray-700">
-          
-          <thead className="bg-red-600">
-            <tr>
-              <th className="p-3">Rank</th>
-              <th className="p-3">Team</th>
-              <th className="p-3">Match 1</th>
-              <th className="p-3">Match 2</th>
-              <th className="p-3">Match 3</th>
-              <th className="p-3">Kills</th>
-              <th className="p-3">Total</th>
-            </tr>
-          </thead>
+              <input placeholder="M1" onChange={(e) => handleChange(index, "m1", e.target.value)} className="p-2 bg-black border border-red-500" />
+              <input placeholder="M2" onChange={(e) => handleChange(index, "m2", e.target.value)} className="p-2 bg-black border border-red-500" />
+              <input placeholder="M3" onChange={(e) => handleChange(index, "m3", e.target.value)} className="p-2 bg-black border border-red-500" />
+              <input placeholder="Kills" onChange={(e) => handleChange(index, "kills", e.target.value)} className="p-2 bg-black border border-red-500" />
 
-          <tbody>
-            {leaderboard.map((team, index) => (
-              <tr
-                key={index}
-                className={`border-t border-gray-700 ${
-                  index === 0
-                    ? "bg-yellow-500 text-black font-bold"
-                    : index === 1
-                    ? "bg-gray-300 text-black"
-                    : index === 2
-                    ? "bg-orange-400 text-black"
-                    : ""
-                }`}
-              >
-                <td className="p-3 text-xl font-bold">
-                  <span className={`
-                    ${index === 0 ? "text-yellow-400 drop-shadow-[0_0_10px_gold]" : ""}
-                    ${index === 1 ? "text-gray-300" : ""}
-                    ${index === 2 ? "text-orange-400" : ""}
-                  `}>
-                    {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}
-                  </span>
-                </td>
-                <td className="p-3">{team.name}</td>
-                <td className="p-3">{team.m1}</td>
-                <td className="p-3">{team.m2}</td>
-                <td className="p-3">{team.m3}</td>
-                <td className="p-3">{team.kills}</td>
-                <td className="p-3">{team.total}</td>
-              </tr>
-            ))}
-          </tbody>
+            </div>
 
-        </table>
+          </div>
+        ))}
+
       </div>
 
     </main>
