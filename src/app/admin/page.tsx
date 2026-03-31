@@ -1,5 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+
+export default function AdminPage() {
+
 const [isAuth, setIsAuth] = useState(false);
 const [password, setPassword] = useState("");
 const handleLogin = () => {
@@ -9,9 +12,6 @@ const handleLogin = () => {
     alert("Wrong Password");
   }
 };
-
-export default function AdminPage() {
-
   const [teams, setTeams] = useState([
     { name: "Team Alpha", m1: 0, m2: 0, m3: 0, kills: 0 },
     { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
