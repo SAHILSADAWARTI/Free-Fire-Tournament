@@ -8,10 +8,13 @@ export default function Leaderboard() {
 
   // 🔥 LOAD FROM LOCAL STORAGE
   useEffect(() => {
-    const saved = localStorage.getItem("teams");
-    if (saved) {
-      setTeams(JSON.parse(saved));
-    }
+    const interval = setInterval(() => {
+      const saved = localStorage.getItem("teams");
+      if (saved) {
+        setTeams(JSON.parse(saved));
+      }
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   const leaderboard = teams
