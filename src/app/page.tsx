@@ -19,12 +19,12 @@ export default function Home() {
         </h1>
 
         <div className="mt-4 px-6 py-2 rounded-full border border-red-500 text-red-400 font-semibold animate-pulse shadow-[0_0_15px_red]">
-          🔴 LIVE MATCH: Round 2 Ongoing
+          🔴 LIVE MATCH Ongoing
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 mt-6 items-center">
 
-          <Link href="/leaderboard" className="bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 shadow-lg shadow-red-500/50">
+          <Link href="/leaderboard" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
             Leaderboard
           </Link>
 
