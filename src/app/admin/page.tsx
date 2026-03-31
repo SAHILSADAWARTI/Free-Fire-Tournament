@@ -59,7 +59,6 @@ export default function AdminPage() {
 
         <button
           onClick={handleLogin}
-          localStorage.setItem("adminAuth", "true");
           className="px-4 py-2 bg-red-600 rounded"
         >
           Login
