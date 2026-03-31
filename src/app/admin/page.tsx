@@ -74,7 +74,26 @@ const handleLogin = () => {
       <h1 className="text-3xl text-red-500 font-bold text-center mb-8">
         ADMIN PANEL
       </h1>
-
+      
+      <div className="flex justify-center mb-6">
+  <button
+    onClick={() => {
+      const newTeam = {
+        name: `Team ${teams.length + 1}`,
+        m1: 0,
+        m2: 0,
+        m3: 0,
+        kills: 0,
+      };
+      const updated = [...teams, newTeam];
+      setTeams(updated);
+      localStorage.setItem("teams", JSON.stringify(updated));
+    }}
+    className="px-4 py-2 bg-green-600 rounded hover:bg-green-700"
+  >
+    ➕ Add Team
+  </button>
+</div>
       <div className="space-y-6">
 
         {teams.map((team, index) => (
