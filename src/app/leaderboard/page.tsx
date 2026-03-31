@@ -3,38 +3,11 @@ import { useEffect, useState } from "react";
   
 export default function Leaderboard() {
   const [teams, setTeams] = useState<any[]>([]);
-  const [search, setSearch] = useState("");
   useEffect(() => {
-
-  const fetchData = () => {
-    fetch("YOUR_CSV_LINK")
-      .then((res) => res.text())
-      .then((data) => {
-        const rows = data.split("\n").slice(1).filter(row => row.trim() !== "");
-
-        const parsed = rows.map((row) => {
-          const [team, m1, m2, m3, kills] = row.split(",");
-
-          return {
-            name: team || "",
-            m1: Number(m1) || 0,
-            m2: Number(m2) || 0,
-            m3: Number(m3) || 0,
-            kills: Number(kills) || 0,
-            logo: "/default-logo.png",
-          };
-        });
-
-        setTeams(parsed);
-      });
-  };
-
-  fetchData(); // first load
-
-  const interval = setInterval(fetchData, 10000); // every 10 sec
-
-  return () => clearInterval(interval);
-
+  const saved = localStorage.getItem("teams");
+  if (saved) {
+    setTeams(JSON.parse(saved));
+  }
 }, []);
   
   const leaderboard = teams
