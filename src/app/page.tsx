@@ -10,11 +10,11 @@ export default function Home() {
       {/* content */}
       <div className="relative z-10">
 
-        <h2 className="text-lg text-white mb-2 tracking-widest">
+        <h2 className="text-sm md:text-lg text-white mb-2 tracking-widest">
           PRAGYOTSAV PRESENTS
         </h2>
 
-        <h1 className="text-5xl font-bold text-red-500 mb-4 drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
+        <h1 className="text-3xl md:text-5xl font-bold text-red-500 mb-4 drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
           FREE FIRE TOURNAMENT
         </h1>
 
@@ -22,7 +22,7 @@ export default function Home() {
           🔴 LIVE MATCH Ongoing
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 mt-6 items-center">
+        <div className="flex flex-col md:flex flex-col md:flex-row gap-4 mt-6 items-center items-center">
 
           <Link href="/leaderboard" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
             Leaderboard
