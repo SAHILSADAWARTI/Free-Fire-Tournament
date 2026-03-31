@@ -1,5 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
+const [isAuth, setIsAuth] = useState(false);
+const [password, setPassword] = useState("");
+const handleLogin = () => {
+  if (password === "Sahoo") {
+    setIsAuth(true);
+  } else {
+    alert("Wrong Password");
+  }
+};
 
 export default function AdminPage() {
 
@@ -12,6 +21,10 @@ export default function AdminPage() {
     const saved = localStorage.getItem("teams");
     if (saved) {
       setTeams(JSON.parse(saved));
+    }
+    const auth = localStorage.getItem("adminAuth");
+    if (auth === "true") {
+      setIsAuth(true);
     }
   }, []);
 
@@ -27,6 +40,35 @@ export default function AdminPage() {
     localStorage.setItem("teams", JSON.stringify(updated));
   };
 
+  if (!isAuth) {
+  return (
+    <main className="min-h-screen bg-black flex items-center justify-center text-white">
+      <div className="border border-red-500 p-6 rounded-lg text-center">
+
+        <h1 className="text-xl mb-4">Admin Login</h1>
+
+        <input
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-2 mb-4 bg-black border border-red-500"
+        />
+
+        <br />
+
+        <button
+          onClick={handleLogin}
+          localStorage.setItem("adminAuth", "true");
+          className="px-4 py-2 bg-red-600 rounded"
+        >
+          Login
+        </button>
+
+      </div>
+    </main>
+  );
+}
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
