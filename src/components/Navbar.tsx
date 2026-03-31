@@ -22,13 +22,14 @@ export default function Navbar() {
 
       {/* DROPDOWN MENU */}
       {isOpen && (
-        <div className="absolute right-4 top-14 bg-black border border-red-500 rounded-lg p-4 w-44 shadow-lg shadow-red-500/30 z-50">
-
+        <div className="absolute right-4 top-14 bg-black border border-red-500 rounded-lg p-4 w-48 right-2 shadow-lg shadow-red-500/30 z-50">
+         
           <div className="flex flex-col gap-3">
             <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
             <Link href="/teams" onClick={() => setIsOpen(false)}>Teams</Link>
             <Link href="/leaderboard" onClick={() => setIsOpen(false)}>Leaderboard</Link>
             <Link href="/results" onClick={() => setIsOpen(false)}>Results</Link>
+      
           </div>
 
         </div>
