@@ -30,7 +30,7 @@ export default function Leaderboard() {
   return (
     <main className="min-h-screen bg-[url('/leaderboard.jpg')] bg-cover bg-center text-white px-6 py-10">
 
-      <h1 className="text-4xl font-bold text-center text-red-500 mb-6">
+      <h1 className="text-2xl md:text-4xl font-bold text-center text-red-500 mb-6">
         LEADERBOARD
       </h1>
 
@@ -50,13 +50,13 @@ export default function Leaderboard() {
 
           <thead className="bg-red-600">
             <tr>
-              <th className="p-3">Rank</th>
-              <th className="p-3">Team</th>
-              <th className="p-3">Match 1</th>
-              <th className="p-3">Match 2</th>
-              <th className="p-3">Match 3</th>
-              <th className="p-3">Kills</th>
-              <th className="p-3">Total</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Rank</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Team</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Match 1</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Match 2</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Match 3</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Kills</th>
+              <th className="p-2 md:p-3 text-xs md:text-base">Total</th>
             </tr>
           </thead>
 
@@ -64,16 +64,16 @@ export default function Leaderboard() {
             {leaderboard.map((team, index) => (
               <tr key={index} className="border-t border-gray-700">
 
-                <td className="p-3">
+                <td className="p-2 md:p-3 text-xs md:text-base">
                   {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}
                 </td>
 
-                <td className="p-3">{team.name}</td>
-                <td className="p-3">{team.m1}</td>
-                <td className="p-3">{team.m2}</td>
-                <td className="p-3">{team.m3}</td>
-                <td className="p-3">{team.kills}</td>
-                <td className="p-3">{team.total}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.name}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.m1}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.m2}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.m3}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.kills}</td>
+                <td className="p-2 md:p-3 text-xs md:text-base">{team.total}</td>
 
               </tr>
             ))}
