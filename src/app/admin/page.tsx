@@ -1,12 +1,5 @@
 "use client";
-import { useState } from "react";
-useEffect(() => {
-  const saved = localStorage.getItem("teams");
-  if (saved) {
-    setTeams(JSON.parse(saved));
-  }
-}, []);
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function AdminPage() {
 
@@ -15,18 +8,24 @@ export default function AdminPage() {
     { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
 
+  useEffect(() => {
+    const saved = localStorage.getItem("teams");
+    if (saved) {
+      setTeams(JSON.parse(saved));
+    }
+  }, []);
+
   const handleChange = (index: number, field: string, value: string) => {
-  const updated = [...teams];
+    const updated = [...teams];
 
-  if (field === "m1") updated[index].m1 = Number(value);
-  if (field === "m2") updated[index].m2 = Number(value);
-  if (field === "m3") updated[index].m3 = Number(value);
-  if (field === "kills") updated[index].kills = Number(value);
+    if (field === "m1") updated[index].m1 = Number(value);
+    if (field === "m2") updated[index].m2 = Number(value);
+    if (field === "m3") updated[index].m3 = Number(value);
+    if (field === "kills") updated[index].kills = Number(value);
 
-  setTeams(updated);
-  localStorage.setItem("teams", JSON.stringify(updated)); 
-};
-  
+    setTeams(updated);
+    localStorage.setItem("teams", JSON.stringify(updated));
+  };
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
