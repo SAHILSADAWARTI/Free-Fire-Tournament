@@ -51,9 +51,9 @@ export default function ResultsPage() {
 
               <thead className="bg-red-600">
                 <tr>
-                  <th className="p-3">Position</th>
-                  <th className="p-3">Team</th>
-                  <th className="p-3">Points</th>
+                  <th className="p-2 md:p-3 text-xs md:text-base">Position</th>
+                  <th className="p-2 md:p-3 text-xs md:text-base">Team</th>
+                  <th className="p-2 md:p-3 text-xs md:text-base">Points</th>
                 </tr>
               </thead>
 
@@ -73,7 +73,7 @@ export default function ResultsPage() {
                           : ""
                       }`}
                     >
-                      <td className="p-3 text-lg font-bold">
+                      <td className="p-2 md:p-3 text-xs md:text-base text-lg font-bold">
                         {team.position === 1
                           ? "🥇"
                           : team.position === 2
@@ -82,7 +82,7 @@ export default function ResultsPage() {
                           ? "🥉"
                           : team.position}
                       </td>
-                      <td className="p-3 flex items-center justify-center gap-2">
+                      <td className="p-2 md:p-3 text-xs md:text-base flex items-center justify-center gap-2">
 
                         <img
                           src={team.logo}
@@ -93,7 +93,7 @@ export default function ResultsPage() {
                         <span>{team.team}</span>
 
                         </td>
-                      <td className="p-3">{team.points}</td>
+                      <td className="p-2 md:p-3 text-xs md:text-base">{team.points}</td>
                     </tr>
                   ))}
               </tbody>
