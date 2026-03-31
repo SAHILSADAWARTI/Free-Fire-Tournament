@@ -1,14 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function AdminPage() {
+export default function Leaderboard() {
 
-  const [teams, setTeams] = useState([
-    { name: "Team Alpha", m1: 0, m2: 0, m3: 0, kills: 0 },
-    { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
-  ]);
+  const [teams, setTeams] = useState<any[]>([]);
+  const [search, setSearch] = useState("");
 
- 
+  // 🔥 LOAD FROM LOCAL STORAGE
   useEffect(() => {
     const saved = localStorage.getItem("teams");
     if (saved) {
@@ -16,44 +14,69 @@ export default function AdminPage() {
     }
   }, []);
 
-  const handleChange = (index: number, field: string, value: string) => {
-    const updated = [...teams];
-
-    if (field === "m1") updated[index].m1 = Number(value);
-    if (field === "m2") updated[index].m2 = Number(value);
-    if (field === "m3") updated[index].m3 = Number(value);
-    if (field === "kills") updated[index].kills = Number(value);
-
-    setTeams(updated);
-    localStorage.setItem("teams", JSON.stringify(updated));
-  };
+  const leaderboard = teams
+    .map((team) => ({
+      ...team,
+      total: team.m1 + team.m2 + team.m3 + team.kills,
+    }))
+    .filter((team) =>
+      team.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a, b) => b.total - a.total);
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
-      <h1 className="text-3xl text-red-500 font-bold text-center mb-8">
-        ADMIN PANEL
+      <h1 className="text-4xl font-bold text-center text-red-500 mb-6">
+        LEADERBOARD
       </h1>
 
-      <div className="space-y-6">
+      {/* 🔍 SEARCH */}
+      <div className="flex justify-center mb-6">
+        <input
+          type="text"
+          placeholder="Search team..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="px-4 py-2 rounded-lg bg-black border border-red-500 text-white"
+        />
+      </div>
 
-        {teams.map((team, index) => (
-          <div key={index} className="border border-red-500 p-4 rounded-lg">
+      <div className="overflow-x-auto w-full">
+        <table className="w-full text-center border border-gray-700">
 
-            <h2 className="text-xl mb-3">{team.name}</h2>
+          <thead className="bg-red-600">
+            <tr>
+              <th className="p-3">Rank</th>
+              <th className="p-3">Team</th>
+              <th className="p-3">Match 1</th>
+              <th className="p-3">Match 2</th>
+              <th className="p-3">Match 3</th>
+              <th className="p-3">Kills</th>
+              <th className="p-3">Total</th>
+            </tr>
+          </thead>
 
-            <div className="grid grid-cols-2 gap-4">
+          <tbody>
+            {leaderboard.map((team, index) => (
+              <tr key={index} className="border-t border-gray-700">
 
-              <input placeholder="M1" onChange={(e) => handleChange(index, "m1", e.target.value)} className="p-2 bg-black border border-red-500" />
-              <input placeholder="M2" onChange={(e) => handleChange(index, "m2", e.target.value)} className="p-2 bg-black border border-red-500" />
-              <input placeholder="M3" onChange={(e) => handleChange(index, "m3", e.target.value)} className="p-2 bg-black border border-red-500" />
-              <input placeholder="Kills" onChange={(e) => handleChange(index, "kills", e.target.value)} className="p-2 bg-black border border-red-500" />
+                <td className="p-3">
+                  {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}
+                </td>
 
-            </div>
+                <td className="p-3">{team.name}</td>
+                <td className="p-3">{team.m1}</td>
+                <td className="p-3">{team.m2}</td>
+                <td className="p-3">{team.m3}</td>
+                <td className="p-3">{team.kills}</td>
+                <td className="p-3">{team.total}</td>
 
-          </div>
-        ))}
+              </tr>
+            ))}
+          </tbody>
 
+        </table>
       </div>
 
     </main>
