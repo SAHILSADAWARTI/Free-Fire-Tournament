@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
+    <main className="min-h-screen bg-[url('/home.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4 relative">
 
       {/* overlay */}
       <div className="absolute inset-0 bg-black/70 pointer-events-none"></div>
