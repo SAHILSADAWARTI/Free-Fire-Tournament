@@ -62,7 +62,7 @@ export default function Leaderboard() {
 
           <tbody>
             {leaderboard.map((team, index) => (
-              <tr key={index} className="border-t border-gray-700">
+              <tr key={index} className="border-t border-gray-700 transition-all duration-300 hover:bg-gray-800">
 
                 <td className="p-2 md:p-3 text-xs md:text-base">
                   {index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : index + 1}
