@@ -16,7 +16,7 @@ const results = [
 export default function ResultsPage() {
 
 
-  const [teams, setTeams] = useState([]);
+  const [teams, setTeams] = useState<any[]>([]);
 
   useEffect(() => {
     const saved = localStorage.getItem("teams");
