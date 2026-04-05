@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function ResultsPage() {
   
-
- const [teams, setTeams] = useState<any[]>([]);
+  const [teams, setTeams] = useState<any[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,20 +16,11 @@ export default function ResultsPage() {
     return () => clearInterval(interval);
   }, []);
 
-            const rounds = [
-            {
-              round: "Round 1",
-              key: "m1",
-            },
-            {
-              round: "Round 2",
-              key: "m2",
-            },
-            {
-              round: "Round 3",
-              key: "m3",
-            },
-          ];
+  const rounds = [
+    { round: "Round 1", key: "m1" },
+    { round: "Round 2", key: "m2" },
+    { round: "Round 3", key: "m3" },
+  ];
           
             return (
               <main
