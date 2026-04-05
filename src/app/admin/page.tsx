@@ -36,7 +36,6 @@ const handleLogin = () => {
     setTeams(parsed);
   }
 
-  // 🔥 ADD THIS PART
   const savedRounds = localStorage.getItem("rounds");
   if (savedRounds) {
     setRounds(JSON.parse(savedRounds));
@@ -133,7 +132,16 @@ const handleLogin = () => {
 
         {teams.map((team, index) => (
           <div key={index} className="border border-red-500 p-4 rounded-lg">
-
+            <button
+              onClick={() => {
+                const updated = teams.filter((_, i) => i !== index);
+                setTeams(updated);
+                localStorage.setItem("teams", JSON.stringify(updated));
+              }}
+              className="px-3 py-1 bg-red-600 rounded mt-2"
+            >
+              ❌ Delete Team
+            </button>
             <input
               value={team.name}
               onChange={(e) => {
@@ -154,52 +162,63 @@ const handleLogin = () => {
 
             </div>
            {/* 🔥 ROUND EDIT SECTION */}
-{rounds.map((round, rIndex) => (
-  <div key={rIndex} className="border border-blue-500 p-4 rounded mb-6">
+            {rounds.map((round, rIndex) => (
+              <div key={rIndex} className="border border-blue-500 p-4 rounded mb-6">
+                 <h2 className="...">{round.round}</h2>
 
-    <h2 className="text-xl mb-3 text-blue-400">{round.round}</h2>
-
-    {round.data.map((team, tIndex) => (
-      <div key={tIndex} className="flex gap-2 mb-2 items-center">
-
-        {/* TEAM NAME */}
-        <span className="w-32">
-          {teams[team.teamIndex]?.name}
-        </span>
-
-        {/* POSITION INPUT */}
-        <input
-          type="number"
-          placeholder="Pos"
-          value={team.position}
-          onChange={(e) => {
-            const updated = [...rounds];
-            updated[rIndex].data[tIndex].position = Number(e.target.value);
-            setRounds(updated);
-            localStorage.setItem("rounds", JSON.stringify(updated));
-          }}
-          className="p-1 bg-black border border-blue-500 w-16"
-        />
-
-        {/* POINTS INPUT */}
-        <input
-          type="number"
-          placeholder="Pts"
-          value={team.points}
-          onChange={(e) => {
-            const updated = [...rounds];
-            updated[rIndex].data[tIndex].points = Number(e.target.value);
-            setRounds(updated);
-            localStorage.setItem("rounds", JSON.stringify(updated));
-          }}
-          className="p-1 bg-black border border-blue-500 w-16"
-        />
-
-      </div>
-    ))}
-
-  </div>
-))}
+                  <button
+                    onClick={() => {
+                      const updated = rounds.filter((_, i) => i !== rIndex);
+                      setRounds(updated);
+                      localStorage.setItem("rounds", JSON.stringify(updated));
+                    }}
+                    className="px-3 py-1 bg-red-600 rounded mb-3"
+                  >
+                    ❌ Delete Round
+                  </button>
+                <h2 className="text-xl mb-3 text-blue-400">{round.round}</h2>
+            
+                {round.data.map((team, tIndex) => (
+                  <div key={tIndex} className="flex gap-2 mb-2 items-center">
+            
+                    {/* TEAM NAME */}
+                    <span className="w-32">
+                      {teams[team.teamIndex]?.name}
+                    </span>
+            
+                    {/* POSITION INPUT */}
+                    <input
+                      type="number"
+                      placeholder="Pos"
+                      value={team.position}
+                      onChange={(e) => {
+                        const updated = [...rounds];
+                        updated[rIndex].data[tIndex].position = Number(e.target.value);
+                        setRounds(updated);
+                        localStorage.setItem("rounds", JSON.stringify(updated));
+                      }}
+                      className="p-1 bg-black border border-blue-500 w-16"
+                    />
+            
+                    {/* POINTS INPUT */}
+                    <input
+                      type="number"
+                      placeholder="Pts"
+                      value={team.points}
+                      onChange={(e) => {
+                        const updated = [...rounds];
+                        updated[rIndex].data[tIndex].points = Number(e.target.value);
+                        setRounds(updated);
+                        localStorage.setItem("rounds", JSON.stringify(updated));
+                      }}
+                      className="p-1 bg-black border border-blue-500 w-16"
+                    />
+            
+                  </div>
+                ))}
+            
+              </div>
+            ))}
           </div>
         ))}
 
