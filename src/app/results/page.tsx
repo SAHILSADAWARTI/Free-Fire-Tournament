@@ -69,17 +69,27 @@ export default function ResultsPage() {
                 <tr key={i} className="border-t border-gray-700">
 
                   <td className="p-2">
-                    {team.position === 1
+                    team.position === 1 && "shadow-[0_0_15px_gold]"
                       ? "🥇"
-                      : team.position === 2
+                      : team.position === 2 && "shadow-[0_0_15px_gold]"
                       ? "🥈"
-                      : team.position === 3
+                      : team.position === 3 && "shadow-[0_0_15px_gold]"
                       ? "🥉"
                       : team.position}
                   </td>
 
-                  <td className="p-2">
-                    {teams[team.teamIndex]?.name || "Team"}
+                  <td className="p-2 flex items-center justify-center gap-2">
+
+                    <img
+                      src={teams[team.teamIndex]?.logo || "/default-logo.png"}
+                      alt="logo"
+                      className="w-6 h-6 rounded-full border border-red-500"
+                    />
+
+                    <span>
+                      {teams[team.teamIndex]?.name || "Team"}
+                    </span>
+
                   </td>
 
                   <td className="p-2">
