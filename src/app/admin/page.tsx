@@ -24,16 +24,25 @@ const handleLogin = () => {
     { name: "Team Blaze", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
   
+  const [rounds, setRounds] = useState<any[]>([]);
+  
   useEffect(() => {
-    const saved = localStorage.getItem("teams");
-    if (saved) {
-      const parsed = JSON.parse(saved).map((team: any) => ({
-        ...team,
-        logo: team.logo || "/default-logo.png",
-      }));
-      setTeams(parsed);
-    }
-  }, []);
+  const saved = localStorage.getItem("teams");
+  if (saved) {
+    const parsed = JSON.parse(saved).map((team: any) => ({
+      ...team,
+      logo: team.logo || "/default-logo.png",
+    }));
+    setTeams(parsed);
+  }
+
+  // 🔥 ADD THIS PART
+  const savedRounds = localStorage.getItem("rounds");
+  if (savedRounds) {
+    setRounds(JSON.parse(savedRounds));
+  }
+
+}, []);
 
   const handleChange = (index: number, field: string, value: string) => {
     const updated = [...teams];
@@ -78,9 +87,27 @@ const handleLogin = () => {
   return (
     <main className="min-h-screen bg-black text-white px-6 py-10">
 
-      <h1 className="text-3xl text-red-500 font-bold text-center mb-8">
-        ADMIN PANEL
-      </h1>
+     <h1 className="...">ADMIN PANEL</h1>
+
+     <button
+       onClick={() => {
+         const newRound = {
+           round: `Round ${rounds.length + 1}`,
+           data: teams.map((_, i) => ({
+            teamIndex: i,
+            position: 0,
+            points: 0,
+          })),
+        };
+
+        const updatedRounds = [...rounds, newRound];
+        setRounds(updatedRounds);
+        localStorage.setItem("rounds", JSON.stringify(updatedRounds));
+      }}
+      className="px-4 py-2 bg-blue-600 rounded mb-4"
+    >
+      ➕ Add Round
+    </button>
       
       <div className="flex justify-center mb-6">
   <button
