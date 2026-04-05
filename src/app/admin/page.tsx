@@ -19,7 +19,7 @@ const handleLogin = () => {
     alert("Wrong Password");
   }
 };
-  const [teams, setTeams] = useState([
+  const [teams, setTeams] = useState<Team[]>([
     { name: "Team Alpha", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
     { name: "Team Blaze", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
@@ -27,11 +27,11 @@ const handleLogin = () => {
   useEffect(() => {
     const saved = localStorage.getItem("teams");
     if (saved) {
-      setTeams(JSON.parse(saved));
-    }
-    const auth = localStorage.getItem("adminAuth");
-    if (auth === "true") {
-      setIsAuth(true);
+      const parsed = JSON.parse(saved).map((team: any) => ({
+        ...team,
+        logo: team.logo || "/default-logo.png",
+      }));
+      setTeams(parsed);
     }
   }, []);
 
@@ -86,13 +86,13 @@ const handleLogin = () => {
   <button
     onClick={() => {
       const newTeam: Team = {
-  name: `Team ${teams.length + 1}`,
-  logo: "/default-logo.png", // ✅ IMPORTANT
-  m1: 0,
-  m2: 0,
-  m3: 0,
-  kills: 0,
-};
+        name: `Team ${teams.length + 1}`,
+        logo: "/default-logo.png", // ✅ IMPORTANT
+        m1: 0,
+        m2: 0,
+        m3: 0,
+        kills: 0,
+      };
       const updated = [...teams, newTeam];
       setTeams(updated);
       localStorage.setItem("teams", JSON.stringify(updated));
