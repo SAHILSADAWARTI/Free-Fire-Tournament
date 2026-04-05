@@ -107,7 +107,16 @@ const handleLogin = () => {
         {teams.map((team, index) => (
           <div key={index} className="border border-red-500 p-4 rounded-lg">
 
-            <h2 className="text-xl mb-3">{team.name}</h2>
+            <input
+              value={team.name}
+              onChange={(e) => {
+                const updated = [...teams];
+                updated[index].name = e.target.value;
+                setTeams(updated);
+                localStorage.setItem("teams", JSON.stringify(updated));
+              }}
+              className="p-2 bg-black border border-red-500 w-full text-center mb-2"
+            />
 
             <div className="grid grid-cols-2 gap-4">
 
