@@ -22,19 +22,19 @@ export default function ResultsPage() {
     { round: "Round 3", key: "m3" },
   ];
           
-            return (
-              <main
-                className="min-h-screen text-white px-6 py-10"
-                style={{
-                  backgroundImage: "url('/results.jpg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
+  return (
+    <main
+        className="min-h-screen text-white px-6 py-10"
+          style={{
+            backgroundImage: "url('/results.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+    >
           
-                <h1 className="text-4xl font-bold text-center text-red-500 mb-10">
-            MATCH RESULTS
-          </h1>
+            <h1 className="text-4xl font-bold text-center text-red-500 mb-10">
+              MATCH RESULTS
+            </h1>
           
           <div className="space-y-10">
             {rounds.map((round, rIndex) => {
