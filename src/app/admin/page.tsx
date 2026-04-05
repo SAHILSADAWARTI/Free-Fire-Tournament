@@ -13,8 +13,8 @@ const handleLogin = () => {
   }
 };
   const [teams, setTeams] = useState([
-    { name: "Team Alpha", m1: 0, m2: 0, m3: 0, kills: 0 },
-    { name: "Team Blaze", m1: 0, m2: 0, m3: 0, kills: 0 },
+    { name: "Team Alpha", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
+    { name: "Team Blaze", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
 
   useEffect(() => {
