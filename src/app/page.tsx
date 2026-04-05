@@ -18,7 +18,7 @@ export default function Home() {
           FREE FIRE TOURNAMENT
         </h1>
 
-        <div className="mt-4 px-6 py-2 rounded-full border border-red-500 text-red-400 font-semibold animate-pulse shadow-[0_0_15px_red]">
+        <div className="bg-red-600 px-4 py-2 rounded-full text-white font-bold animate-pulse shadow-[0_0_20px_red]">
           🔴 LIVE MATCH Ongoing
         </div>
 
