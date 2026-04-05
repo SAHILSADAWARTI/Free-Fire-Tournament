@@ -24,7 +24,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex flex-col md:flex-row gap-4 mt-6 items-center items-center">
 
-          <Link href="/leaderboard" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 transition-all duration-300 hover:scale-105 shadow-lg shadow-red-500/50">
+          <Link href="/leaderboard" className="border border-red-500 px-6 py-3 rounded-lg hover:bg-red-500 shadow-lg shadow-red-500/50">
             Leaderboard
           </Link>
 
