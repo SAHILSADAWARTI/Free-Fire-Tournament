@@ -7,7 +7,19 @@ const results = [
     data: [
       { teamIndex: 0, position: 1, points: 12 },
       { teamIndex: 1, position: 2, points: 9 },
-      { teamIndex: 2, position: 3, points: 8 },
+    ],
+  },
+  {
+    round: "Round 2",
+    data: [
+      { teamIndex: 0, position: 2, points: 9 },
+      { teamIndex: 1, position: 1, points: 12 },
+    ],
+   
+    round: "Round 3",
+    data: [
+      { teamIndex: 0, position: 3, points: 9 },
+      { teamIndex: 1, position: 1, points: 12 },
     ],
   },
 ];
