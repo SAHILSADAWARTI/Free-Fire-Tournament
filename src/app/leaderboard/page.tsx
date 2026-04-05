@@ -28,7 +28,7 @@ export default function Leaderboard() {
   .sort((a, b) => b.total - a.total);
 
 return (
-    <main className="min-h-screen bg-[url('/leaderboard.jpg')] bg-cover bg-center text-white px-6 py-10">
+    <main className="min-h-screen bg-black text-white px-6 py-10">
 
       <h1 className="text-2xl md:text-4xl font-bold text-center text-red-500 mb-6">
         LEADERBOARD
