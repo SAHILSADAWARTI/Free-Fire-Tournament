@@ -15,7 +15,8 @@ const results = [
       { teamIndex: 0, position: 2, points: 9 },
       { teamIndex: 1, position: 1, points: 12 },
     ],
-   
+  },
+  {
     round: "Round 3",
     data: [
       { teamIndex: 0, position: 3, points: 9 },
