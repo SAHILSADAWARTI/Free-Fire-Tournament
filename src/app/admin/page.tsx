@@ -23,7 +23,9 @@ const handleLogin = () => {
     { name: "Team Alpha", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
     { name: "Team Blaze", logo: "/default-logo.png", m1: 0, m2: 0, m3: 0, kills: 0 },
   ]);
-
+  
+  const [rounds, setRounds] = useState<any[]>([]);
+  
   useEffect(() => {
     const saved = localStorage.getItem("teams");
     if (saved) {
