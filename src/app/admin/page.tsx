@@ -178,7 +178,7 @@ const handleLogin = () => {
                   </button>
                 <h2 className="text-xl mb-3 text-blue-400">{round.round}</h2>
             
-                {round.data.map((team, tIndex) => (
+               {round.data.map((team: any, tIndex: number) => (
                   <div key={tIndex} className="flex gap-2 mb-2 items-center">
             
                     {/* TEAM NAME */}
