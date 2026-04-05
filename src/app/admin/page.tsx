@@ -1,6 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-
+type Team = {
+  name: string;
+  logo?: string;
+  m1: number;
+  m2: number;
+  m3: number;
+  kills: number;
+};
 export default function AdminPage() {
 
 const [isAuth, setIsAuth] = useState(false);
@@ -78,13 +85,14 @@ const handleLogin = () => {
       <div className="flex justify-center mb-6">
   <button
     onClick={() => {
-      const newTeam = {
-        name: `Team ${teams.length + 1}`,
-        m1: 0,
-        m2: 0,
-        m3: 0,
-        kills: 0,
-      };
+      const newTeam: Team = {
+  name: `Team ${teams.length + 1}`,
+  logo: "/default-logo.png", // ✅ IMPORTANT
+  m1: 0,
+  m2: 0,
+  m3: 0,
+  kills: 0,
+};
       const updated = [...teams, newTeam];
       setTeams(updated);
       localStorage.setItem("teams", JSON.stringify(updated));
