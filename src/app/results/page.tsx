@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const results = [
   {
     round: "Round 1",
-    mvp: "Player1",
     data: [
       { teamIndex: 0, position: 1, points: 12 },
       { teamIndex: 1, position: 2, points: 9 },
@@ -19,10 +18,14 @@ export default function ResultsPage() {
   const [teams, setTeams] = useState<any[]>([]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("teams");
-    if (saved) {
-      setTeams(JSON.parse(saved));
-    }
+    const interval = setInterval(() => {
+      const saved = localStorage.getItem("teams");
+      if (saved) {
+        setTeams(JSON.parse(saved));
+      }
+    }, 2000); // refresh every 2 sec
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -47,8 +50,12 @@ export default function ResultsPage() {
         {round.round}
       </h2>
 
-      <p className="mb-4 text-yellow-400 text-center">
-        🏆 MVP: {round.mvp}
+      <p className="mb-4 text-yellow-400 text-center animate-pulse">
+        🏆 MVP: {
+          [...round.data].sort((a, b) => b.points - a.points)[0]?.teamIndex !== undefined
+            ? teams[[...round.data].sort((a, b) => b.points - a.points)[0].teamIndex]?.name
+            : "TBD"
+        }
       </p>
 
       <div className="overflow-x-auto w-full">
