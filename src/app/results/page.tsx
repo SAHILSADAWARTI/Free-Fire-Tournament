@@ -19,7 +19,7 @@ useEffect(() => {
       if (saved) {
         setTeams(JSON.parse(saved));
       }
-    }, 2000); // refresh every 2 sec
+    }, 1000); // refresh every 2 sec
 
     return () => clearInterval(interval);
   }, []);
