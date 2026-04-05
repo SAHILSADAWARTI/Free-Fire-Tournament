@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function Leaderboard() {
 
-  const [teams, setTeams] = useState<any[]>([]);
+  const [teams, setTeams] = useState([]);
   const [search, setSearch] = useState("");
 
   // 🔥 LOAD FROM LOCAL STORAGE
