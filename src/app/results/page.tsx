@@ -1,29 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const results = [
-  {
-    round: "Round 1",
-    data: [
-      { teamIndex: 0, position: 1, points: 12 },
-      { teamIndex: 1, position: 2, points: 9 },
-    ],
-  },
-  {
-    round: "Round 2",
-    data: [
-      { teamIndex: 0, position: 2, points: 9 },
-      { teamIndex: 1, position: 1, points: 12 },
-    ],
-  },
-  {
-    round: "Round 3",
-    data: [
-      { teamIndex: 0, position: 3, points: 9 },
-      { teamIndex: 1, position: 1, points: 12 },
-    ],
-  },
-];
+const [results, setResults] = useState<any[]>([]);
+useEffect(() => {
+  const saved = localStorage.getItem("rounds");
+  if (saved) {
+    setResults(JSON.parse(saved));
+  }
+}, []);
 
 export default function ResultsPage() {
 
