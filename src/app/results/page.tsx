@@ -5,10 +5,14 @@ export default function ResultsPage() {
   
 const [results, setResults] = useState<any[]>([]);
 useEffect(() => {
-  const saved = localStorage.getItem("rounds");
-  if (saved) {
-    setResults(JSON.parse(saved));
-  }
+  const interval = setInterval(() => {
+    const saved = localStorage.getItem("rounds");
+    if (saved) {
+      setResults(JSON.parse(saved));
+    }
+  }, 1000);
+
+  return () => clearInterval(interval);
 }, []);
 
  const [teams, setTeams] = useState<any[]>([]);
