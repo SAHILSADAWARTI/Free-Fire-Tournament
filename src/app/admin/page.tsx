@@ -144,7 +144,7 @@ const handleLogin = () => {
               }}
               className="p-2 bg-black border border-red-500 w-full text-center mb-2"
             />
-
+          
             <div className="grid grid-cols-2 gap-4">
 
               <input placeholder="M1" onChange={(e) => handleChange(index, "m1", e.target.value)} className="p-2 bg-black border border-red-500" />
@@ -153,7 +153,53 @@ const handleLogin = () => {
               <input placeholder="Kills" onChange={(e) => handleChange(index, "kills", e.target.value)} className="p-2 bg-black border border-red-500" />
 
             </div>
+           {/* 🔥 ROUND EDIT SECTION */}
+{rounds.map((round, rIndex) => (
+  <div key={rIndex} className="border border-blue-500 p-4 rounded mb-6">
 
+    <h2 className="text-xl mb-3 text-blue-400">{round.round}</h2>
+
+    {round.data.map((team, tIndex) => (
+      <div key={tIndex} className="flex gap-2 mb-2 items-center">
+
+        {/* TEAM NAME */}
+        <span className="w-32">
+          {teams[team.teamIndex]?.name}
+        </span>
+
+        {/* POSITION INPUT */}
+        <input
+          type="number"
+          placeholder="Pos"
+          value={team.position}
+          onChange={(e) => {
+            const updated = [...rounds];
+            updated[rIndex].data[tIndex].position = Number(e.target.value);
+            setRounds(updated);
+            localStorage.setItem("rounds", JSON.stringify(updated));
+          }}
+          className="p-1 bg-black border border-blue-500 w-16"
+        />
+
+        {/* POINTS INPUT */}
+        <input
+          type="number"
+          placeholder="Pts"
+          value={team.points}
+          onChange={(e) => {
+            const updated = [...rounds];
+            updated[rIndex].data[tIndex].points = Number(e.target.value);
+            setRounds(updated);
+            localStorage.setItem("rounds", JSON.stringify(updated));
+          }}
+          className="p-1 bg-black border border-blue-500 w-16"
+        />
+
+      </div>
+    ))}
+
+  </div>
+))}
           </div>
         ))}
 
