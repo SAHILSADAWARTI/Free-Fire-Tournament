@@ -66,17 +66,19 @@ export default function ResultsPage() {
             {[...round.data]
               .sort((a, b) => a.position - b.position)
               .map((team, i) => (
-                <tr key={i} className="border-t border-gray-700">
+               <tr className={`border-t border-gray-700 ${
+                 team.position === 1 ? "bg-yellow-500 text-black" : ""
+               }`}>
 
                   <td className="p-2">
-                    team.position === 1 && "shadow-[0_0_15px_gold]"
-                      ? "🥇"
-                      : team.position === 2 && "shadow-[0_0_15px_gold]"
-                      ? "🥈"
-                      : team.position === 3 && "shadow-[0_0_15px_gold]"
-                      ? "🥉"
-                      : team.position}
-                  </td>
+                    {team.position === 1
+                    ? "🥇"
+                    : team.position === 2
+                    ? "🥈"
+                    : team.position === 3
+                    ? "🥉"
+                    : team.position}
+                 </td>
 
                   <td className="p-2 flex items-center justify-center gap-2">
 
