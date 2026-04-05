@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
+export default function ResultsPage() {
+  
 const [results, setResults] = useState<any[]>([]);
 useEffect(() => {
   const saved = localStorage.getItem("rounds");
@@ -9,10 +11,7 @@ useEffect(() => {
   }
 }, []);
 
-export default function ResultsPage() {
-
-
-  const [teams, setTeams] = useState<any[]>([]);
+ const [teams, setTeams] = useState<any[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
