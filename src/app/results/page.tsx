@@ -1,5 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
+const [teams, setTeams] = useState([]);
+
+useEffect(() => {
+  const saved = localStorage.getItem("teams");
+  if (saved) {
+    setTeams(JSON.parse(saved));
+  }
+}, []);
 const results = [
   {
     round: "Round 1",
