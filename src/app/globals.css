@@ -37,3 +37,58 @@ body {
 body {
   background: radial-gradient(circle at top, #1a0000, #000000);
 }
+<<<<<<< HEAD
+/* 🔥 SIMPLE FLICKER (NEON BROKEN LIGHT) */
+
+.flicker {
+  color: #ff0000;
+  animation: flicker 3s infinite;
+}
+
+/* random light flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+
+  5% { opacity: 0.2; }
+  10% { opacity: 1; }
+
+  15% { opacity: 0.4; }
+  20% { opacity: 1; }
+
+  30% { opacity: 0.3; }
+  35% { opacity: 1; }
+
+  50% { opacity: 0.1; }
+  55% { opacity: 1; }
+
+  70% { opacity: 0.5; }
+  75% { opacity: 1; }
+}
+/* 🔥 CARD ANIMATED BACKGROUND */
+
+.card-animate {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-animate::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,0,0,0.2), transparent 60%);
+  animation: rotateBg 6s linear infinite;
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+=======
+>>>>>>> 2ae8ffdd974777dcaec9b198b641f1fb9840ccf5
