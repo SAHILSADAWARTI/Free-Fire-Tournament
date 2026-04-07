@@ -1,4 +1,8 @@
 "use client";
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2ae8ffdd974777dcaec9b198b641f1fb9840ccf5
 import { useEffect, useState } from "react";
 
 export default function ResultsPage() {
@@ -102,3 +106,12 @@ export default function ResultsPage() {
               </div>
             );
           })}
+<<<<<<< HEAD
+                
+        </div>
+
+    </main>
+  );
+}
+=======
+>>>>>>> 2ae8ffdd974777dcaec9b198b641f1fb9840ccf5
