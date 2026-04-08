@@ -37,7 +37,7 @@ body {
 body {
   background: radial-gradient(circle at top, #1a0000, #000000);
 }
-<<<<<<< HEAD
+
 /* 🔥 SIMPLE FLICKER (NEON BROKEN LIGHT) */
 
 .flicker {
@@ -90,5 +90,4 @@ body {
     transform: rotate(360deg);
   }
 }
-=======
->>>>>>> 2ae8ffdd974777dcaec9b198b641f1fb9840ccf5
+
